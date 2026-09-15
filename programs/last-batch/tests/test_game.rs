@@ -4,7 +4,7 @@ use {
         solana_program::{instruction::Instruction, system_program},
         AccountDeserialize, InstructionData, ToAccountMetas,
     },
-    last_crumb::{constants::OVEN_SEED, state::Oven},
+    last_batch::{constants::OVEN_SEED, state::Oven},
     litesvm::LiteSVM,
     solana_keypair::Keypair,
     solana_message::{Message, VersionedMessage},
@@ -41,15 +41,15 @@ impl Game {
         let mut svm = LiteSVM::new();
         let bytes = include_bytes!(concat!(
             env!("CARGO_TARGET_TMPDIR"),
-            "/../deploy/last_crumb.so"
+            "/../deploy/last_batch.so"
         ));
-        svm.add_program(last_crumb::id(), bytes).unwrap();
+        svm.add_program(last_batch::id(), bytes).unwrap();
         let authority = Keypair::new();
         svm.airdrop(&authority.pubkey(), 100 * COOK).unwrap();
         // The real Cookie Jar is an existing, funded vault.
         let jar = Pubkey::new_unique();
         svm.airdrop(&jar, COOK).unwrap();
-        let oven = Pubkey::find_program_address(&[OVEN_SEED], &last_crumb::id()).0;
+        let oven = Pubkey::find_program_address(&[OVEN_SEED], &last_batch::id()).0;
         let mut game = Game {
             svm,
             authority,
@@ -92,15 +92,15 @@ impl Game {
 
     fn initialize_ix(&self, bake_price: u64) -> Instruction {
         Instruction::new_with_bytes(
-            last_crumb::id(),
-            &last_crumb::instruction::Initialize {
+            last_batch::id(),
+            &last_batch::instruction::Initialize {
                 bake_price,
                 round_secs: ROUND_SECS,
                 jar_bps: JAR_BPS,
                 carry_bps: CARRY_BPS,
             }
             .data(),
-            last_crumb::accounts::Initialize {
+            last_batch::accounts::Initialize {
                 authority: self.authority.pubkey(),
                 oven: self.oven,
                 jar: self.jar,
@@ -118,9 +118,9 @@ impl Game {
 
     fn bake_ix(&self, baker: &Pubkey) -> Instruction {
         Instruction::new_with_bytes(
-            last_crumb::id(),
-            &last_crumb::instruction::Bake {}.data(),
-            last_crumb::accounts::Bake {
+            last_batch::id(),
+            &last_batch::instruction::Bake {}.data(),
+            last_batch::accounts::Bake {
                 baker: *baker,
                 oven: self.oven,
                 jar: self.jar,
@@ -132,9 +132,9 @@ impl Game {
 
     fn settle_ix(&self, cranker: &Pubkey, winner: &Pubkey) -> Instruction {
         Instruction::new_with_bytes(
-            last_crumb::id(),
-            &last_crumb::instruction::Settle {}.data(),
-            last_crumb::accounts::Settle {
+            last_batch::id(),
+            &last_batch::instruction::Settle {}.data(),
+            last_batch::accounts::Settle {
                 cranker: *cranker,
                 oven: self.oven,
                 winner: *winner,
@@ -145,9 +145,9 @@ impl Game {
 
     fn sweeten_ix(&self, donor: &Pubkey, amount: u64) -> Instruction {
         Instruction::new_with_bytes(
-            last_crumb::id(),
-            &last_crumb::instruction::Sweeten { amount }.data(),
-            last_crumb::accounts::Sweeten {
+            last_batch::id(),
+            &last_batch::instruction::Sweeten { amount }.data(),
+            last_batch::accounts::Sweeten {
                 donor: *donor,
                 oven: self.oven,
                 system_program: system_program::ID,

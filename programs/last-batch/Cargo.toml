@@ -1,5 +1,5 @@
 [package]
-name = "last-crumb"
+name = "last-batch"
 version = "0.1.0"
 description = "Created with Anchor"
 edition.workspace = true
@@ -7,7 +7,7 @@ rust-version.workspace = true
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "last_crumb"
+name = "last_batch"
 
 [features]
 default = []
@@ -21,7 +21,7 @@ custom-panic = []
 
 
 [dependencies]
-anchor-lang = "=1.2.0"
+anchor-lang = "=1.1.2"
 
 [dev-dependencies]
 litesvm = "0.10.0"

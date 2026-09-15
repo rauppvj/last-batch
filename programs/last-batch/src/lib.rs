@@ -9,12 +9,12 @@ pub use constants::*;
 pub use instructions::*;
 pub use state::*;
 
-declare_id!("BioGs7AczUWcMYMz83sExMs3mtQHtfJqytmrymtLwM5c");
+declare_id!("BakeGjtjwhpaZ8bwqDjGR4KeRZ2jBPLia4XJdbNaJsXP");
 
-/// Last Crumb: every bake pays into a shared pot and restarts the timer.
+/// Last Batch: every bake pays into a shared pot and restarts the timer.
 /// When the timer runs out, the last baker takes the pot.
 #[program]
-pub mod last_crumb {
+pub mod last_batch {
     use super::*;
 
     pub fn initialize(
