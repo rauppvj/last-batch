@@ -7,6 +7,8 @@ last person who baked takes the pot. A slice of every bake goes to the
 [Cookie Jar](https://docs.cookiechain.wtf/cookie-jar), the community vault that funds Cookie Chain
 builders, and part of each pot stays in the oven so the next round never starts empty.
 
+![The oven mid-round: pot, countdown and the last baker](media/oven.jpg)
+
 - **Live app:** https://last-batch.vercel.app
 - **Program:** [`BakeGjtjwhpaZ8bwqDjGR4KeRZ2jBPLia4XJdbNaJsXP`](https://cookiescan.io/address/BakeGjtjwhpaZ8bwqDjGR4KeRZ2jBPLia4XJdbNaJsXP)
 - **Oven account:** [`FLfdfiziHhrjC5n6vyMnegFvscHWgKSUbTdDUPHbXHap`](https://cookiescan.io/address/FLfdfiziHhrjC5n6vyMnegFvscHWgKSUbTdDUPHbXHap)
