@@ -14,7 +14,7 @@ import '@fontsource/figtree/700';
 import './index.css';
 
 import { useBalance } from './chain';
-import { client } from './client';
+import { client, startClient } from './client';
 import { LAMPORTS_PER_COOK, NIGHTLY_URL, txUrl } from './config';
 import { explain } from './errors';
 import { cook, short } from './format';
@@ -120,6 +120,8 @@ function Fund() {
         </div>
     );
 }
+
+await startClient();
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

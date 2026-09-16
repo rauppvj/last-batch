@@ -7,6 +7,9 @@ import '@fontsource/figtree/400';
 import '@fontsource/figtree/700';
 import './index.css';
 import App from './App.tsx';
+import { startClient } from './client';
+
+await startClient();
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

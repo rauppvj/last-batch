@@ -3,7 +3,7 @@ import type { Address } from '@solana/kit';
 import { useConnect, useConnectedWallet, useDisconnect, useWallets, useWalletStatus } from '@solana/kit-plugin-wallet/react';
 
 import { useBalance, useChainNow, useOven } from './chain';
-import { client } from './client';
+import { chain, client, unusableWallets } from './client';
 import { addressUrl, BRIDGE_URL, NIGHTLY_URL, REPO_URL, SYSTEM_PROGRAM, txUrl } from './config';
 import { explain, type Friendly } from './errors';
 import { ago, cook, countdown, short } from './format';
@@ -401,20 +401,33 @@ function WalletControl({ balance }: { balance: bigint | undefined }) {
     }
 
     const sorted = [...wallets].sort((a, b) => Number(/nightly/i.test(b.name)) - Number(/nightly/i.test(a.name)));
+    const unusable = unusableWallets();
     if (sorted.length === 0) {
         return (
-            <a className="connect" href={NIGHTLY_URL} target="_blank" rel="noreferrer">
-                Install Nightly
-            </a>
+            <div className="wallet">
+                <a className="connect" href={NIGHTLY_URL} target="_blank" rel="noreferrer">
+                    Install Nightly
+                </a>
+                {unusable.length > 0 && (
+                    <span className="wallet-note">
+                        {unusable.map(w => w.name).join(', ')} cannot sign for {chain}
+                    </span>
+                )}
+            </div>
         );
     }
     return (
         <div className="wallet">
-            {sorted.slice(0, 2).map(w => (
+            {sorted.slice(0, 3).map(w => (
                 <button key={w.name} className="connect" disabled={isRunning} onClick={() => connect(w)}>
                     Connect {w.name}
                 </button>
             ))}
+            {unusable.length > 0 && (
+                <span className="wallet-note">
+                    {unusable.map(w => w.name).join(', ')} cannot sign for {chain}
+                </span>
+            )}
         </div>
     );
 }
