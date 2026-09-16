@@ -10,6 +10,7 @@ Deadline: 22 September 2026, 21:59 UTC (18:59 in Brasília).
 | Live application URL | https://last-batch.vercel.app |
 | GitHub repository | https://github.com/rauppvj/last-batch |
 | Relevant addresses | Program `BakeGjtjwhpaZ8bwqDjGR4KeRZ2jBPLia4XJdbNaJsXP`, oven `FLfdfiziHhrjC5n6vyMnegFvscHWgKSUbTdDUPHbXHap` |
+| X thread | https://x.com/therppx/status/2100057580949164281 |
 
 Verified live on Cookie Chain on 16 September 2026, before submitting:
 
@@ -21,7 +22,12 @@ Verified live on Cookie Chain on 16 September 2026, before submitting:
 
 Screenshots for the thread: `media/oven.jpg` (mid-round) and `media/rounds.jpg` (history and totals).
 
-## X thread (draft — post from the personal account, then share the link in the Cookie Chain Telegram)
+## X thread — posted 16 September 2026
+
+https://x.com/therppx/status/2100057580949164281 (7 posts). Still to do: share that link in the
+Cookie Chain Telegram, then submit on Earn.
+
+Text as published:
 
 **1/**
 Last Batch is live on Cookie Chain 🍪
