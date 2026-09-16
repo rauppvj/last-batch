@@ -14,6 +14,9 @@ importers:
       '@fontsource/figtree':
         specifier: ^5.3.0
         version: 5.3.0
+      '@solana-program/system':
+        specifier: ^0.14.1
+        version: 0.14.1(@solana/kit@8.3.0(typescript@6.0.3))
       '@solana/kit':
         specifier: ^8.3.0
         version: 8.3.0(typescript@6.0.3)
@@ -500,6 +503,11 @@ packages:
 
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
+
+  '@solana-program/system@0.14.1':
+    resolution: {integrity: sha512-K6ZiIrAKoJAfcwfUdsoFvfSAxeRJaRrV7BPFTJvUVRS4m3zszN+nLcdaNMMe2F1/zTriZqC+xh+Kgw6ziGUqpQ==}
+    peerDependencies:
+      '@solana/kit': ^8.0.0
 
   '@solana/accounts@8.3.0':
     resolution: {integrity: sha512-HNVCs4yyE5kTRHVD3ApuKuByuO85GHE6Ns7I/yMB9vXhFgZjGzFhOGi/YCjlWpIk3RqTyX7wGniHyEb49R3ELQ==}
@@ -1639,6 +1647,10 @@ snapshots:
     optional: true
 
   '@rolldown/pluginutils@1.0.1': {}
+
+  '@solana-program/system@0.14.1(@solana/kit@8.3.0(typescript@6.0.3))':
+    dependencies:
+      '@solana/kit': 8.3.0(typescript@6.0.3)
 
   '@solana/accounts@8.3.0(typescript@6.0.3)':
     dependencies:
